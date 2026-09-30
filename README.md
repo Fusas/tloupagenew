@@ -11,7 +11,7 @@ Landing page de estudo inspirada em The Last of Us Parte II, feita só com **HTM
 - **Faixa infinita:** "ENDURE AND SURVIVE" correndo sem parar e, embaixo, os nomes das cidades no sentido contrário. Pausa ao passar o mouse.
 - **Vaga-lumes:** segunda cena presa na tela, com o texto embaixo à direita (`cena-direita cena-baixo`) para não cobrir o símbolo na parede.
 - **Infectados:** os 4 estágios da infecção em cards, ligados por uma linha que cresce ao rolar. As fotos saem do preto e branco para coloridas no hover. Card sem foto: troque o `<div class="card-vazio">` por um `<img>`.
-- **Galeria:** mosaico em grid; ao clicar, a foto abre em tela cheia usando `:target` (sem JavaScript).
+- **Galeria:** 8 fotos em mosaico (grid, com fotos grandes e largas alternadas); ao clicar, a foto abre em tela cheia usando `:target` (sem JavaScript).
 - **Chamada final:** imagem em tela cheia que se afasta ao entrar, título "Sobreviva." e botões para a loja e o trailer.
 - **Números:** contam de 0 até o valor final conforme entram na tela (`@property` + `counter()`), e a linha de cima cresce junto.
 - **Rodapé:** assinatura "fusas." com o ponto piscando no hover e selo giratório em SVG.
