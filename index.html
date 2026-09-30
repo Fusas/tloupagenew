@@ -6,6 +6,9 @@
   <title>The Last of Us Parte II</title>
   <meta name="description" content="Landing page de estudo sobre The Last of Us Parte II, feita com HTML e CSS.">
   <meta name="theme-color" content="#0b0c0c">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
   <!-- PRÉVIA AO COMPARTILHAR O LINK (WhatsApp, Discord, Instagram, LinkedIn...)
        Esses apps só leem endereços completos (https://...), então a prévia
@@ -27,7 +30,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=Inter:wght@400;500;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Michroma&family=Oswald:wght@500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -386,15 +389,20 @@
   </main>
 
   <footer class="rodape">
-    <!-- assinatura (logo 5) -->
-    <a class="assinatura" href="https://github.com/Fusas" target="_blank" rel="noopener">
+    <!-- assinatura: o F é um traço de assinatura e o resto é desenhado em linhas.
+         pathLength="1" deixa o CSS "redesenhar" o F no hover. -->
+    <a class="assinatura" href="https://github.com/Fusas" target="_blank" rel="noopener" aria-label="Feito por Fusas (GitHub)">
       <span class="assinatura-rotulo">Feito por</span>
-      <span class="assinatura-nome">fusas<span class="assinatura-ponto" aria-hidden="true"></span></span>
+      <svg class="assinatura-logo" viewBox="-4 -4 294 58" aria-hidden="true">
+        <path class="assinatura-f" pathLength="1" d="M0 50 C 11 47 15 30 21 17 C 26 6 32 0 44 0 H 80"/>
+        <path class="assinatura-f" pathLength="1" d="M13 24 H 42"/>
+        <path transform="translate(90 0)" d="M0 0 V24 A16 16 0 0 0 32 24 V0"/><path transform="translate(146 0)" d="M30 5 Q30 0 22 0 H9 Q0 0 0 9 V11 Q0 20 9 20 H21 Q30 20 30 29 V31 Q30 40 21 40 H8 Q0 40 0 35"/><path transform="translate(198 0)" d="M0 40 L17 0 L34 40"/><path transform="translate(254 0)" d="M30 5 Q30 0 22 0 H9 Q0 0 0 9 V11 Q0 20 9 20 H21 Q30 20 30 29 V31 Q30 40 21 40 H8 Q0 40 0 35"/>
+      </svg>
     </a>
 
     <p class="rodape-aviso">Projeto de estudo, sem fins comerciais.<br>The Last of Us e imagens © Naughty Dog / Sony Interactive Entertainment.</p>
 
-    <!-- selo giratório (logo 6) -->
+    <!-- selo giratório: anel de texto (fonte Michroma) girando em volta do F -->
     <a class="selo" href="https://github.com/Fusas" target="_blank" rel="noopener" aria-label="GitHub de Fusas">
       <svg viewBox="0 0 180 180" aria-hidden="true">
         <defs>
@@ -404,10 +412,9 @@
         <text class="selo-texto">
           <textPath href="#selo-circulo" textLength="410" lengthAdjust="spacing">FUSAS • WEB DEV • FUSAS • WEB DEV • </textPath>
         </text>
-        <g class="selo-f">
-          <rect x="76" y="66" width="10" height="48"/>
-          <rect x="76" y="66" width="32" height="10"/>
-          <rect x="76" y="86" width="24" height="10"/>
+        <g class="selo-f" transform="translate(59 66) scale(0.95)">
+          <path d="M0 50 C 11 47 15 30 21 17 C 26 6 32 0 44 0 H 66"/>
+          <path d="M13 24 H 40"/>
         </g>
       </svg>
     </a>

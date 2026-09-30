@@ -880,11 +880,11 @@ a {
   text-align: center;
 }
 
-/* LOGO 5: assinatura "fusas." com o ponto piscando como um cursor */
+/* ASSINATURA: "FUSAS" desenhado em linhas, com o F de assinatura */
 .assinatura {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 10px;
 }
 
 .assinatura-rotulo {
@@ -894,29 +894,28 @@ a {
   color: var(--cinza);
 }
 
-.assinatura-nome {
-  font-family: "Inter", sans-serif;
-  font-weight: 800;
-  font-size: 2.4rem;
-  line-height: 1;
-  letter-spacing: -0.05em;
+.assinatura-logo {
+  width: 190px;
+  height: auto;
+  overflow: visible;
+  fill: none;
+  stroke: var(--branco);
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
-.assinatura-ponto {
-  display: inline-block;
-  width: 0.2em;
-  height: 0.2em;
-  margin-left: 0.06em;
-  background: var(--cinza);
-  transition: background 0.3s;
+/* hover: o F é "escrito" de novo, como uma assinatura */
+.assinatura-f {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
 }
 
-.assinatura:hover .assinatura-ponto {
-  background: var(--branco);
-  animation: piscar 1s steps(1) infinite;
+.assinatura:hover .assinatura-f {
+  animation: escrever 0.9s cubic-bezier(0.6, 0, 0.2, 1);
 }
 
-/* LOGO 6: selo com o texto girando em volta do F */
+/* SELO: texto girando em volta do F */
 .selo {
   flex-shrink: 0;
   width: 110px;
@@ -937,18 +936,22 @@ a {
 }
 
 .selo-texto {
-  font-family: "Inter", sans-serif;
-  font-weight: 500;
-  font-size: 13px;
+  font-family: "Michroma", sans-serif;
+  font-size: 10.5px;
   fill: var(--branco);
   transform-origin: 90px 90px;
   animation: girar 18s linear infinite;
 }
 
 .selo-f {
-  fill: var(--branco);
-  transform-origin: 90px 90px;
-  transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
+  fill: none;
+  stroke: var(--branco);
+  stroke-width: 3.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: scale 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
 .selo:hover .selo-borda {
@@ -956,7 +959,7 @@ a {
 }
 
 .selo:hover .selo-f {
-  transform: scale(1.2);
+  scale: 1.15;
 }
 
 /* ================= ANIMAÇÕES ================= */
@@ -993,9 +996,9 @@ a {
   }
 }
 
-@keyframes piscar {
-  50% {
-    opacity: 0;
+@keyframes escrever {
+  from {
+    stroke-dashoffset: 1;
   }
 }
 
