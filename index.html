@@ -87,8 +87,29 @@
             Ellie e Joel construíram uma vida em Jackson, Wyoming. Mas quando um acontecimento violento
             destrói essa paz, Ellie parte numa jornada implacável por Seattle em busca de justiça.
           </p>
-          <p class="citacao cena-parte-4">“Eu preciso encontrá-los.”</p>
         </div>
+      </div>
+    </section>
+
+    <!-- CENA DA FRASE: cada parte aparece conforme a rolagem avança -->
+    <section class="cena cena-frase" aria-labelledby="frase-titulo">
+      <div class="cena-fixa">
+        <img class="cena-img" src="img/citacao-ellie.jpg" alt="Ellie com o rosto ferido, encarando com determinação" width="2000" height="1125" loading="lazy">
+        <div class="cena-sombra" aria-hidden="true"></div>
+
+        <figure class="cena-texto frase">
+          <blockquote>
+            <p id="frase-titulo" class="frase-linhas">
+              <span class="cena-parte-1">I'm gonna find...</span>
+              <span class="cena-parte-2">and I'm gonna kill...</span>
+              <span class="cena-parte-3 frase-destaque">every last one of them.</span>
+            </p>
+          </blockquote>
+          <figcaption class="cena-parte-4">
+            <span class="frase-traducao">“Eu vou encontrar... e vou matar... cada um deles.”</span>
+            <span class="rotulo">Ellie · Trailer de revelação, PlayStation Experience 2016</span>
+          </figcaption>
+        </figure>
       </div>
     </section>
 
@@ -261,6 +282,57 @@
         </div>
       </div>
     </section>
+    <!-- GALERIA
+         Cada foto é um link para #foto-N. O :target do CSS abre a foto
+         em tela cheia; o X (link para #galeria) fecha. Sem JavaScript. -->
+    <section class="galeria" id="galeria">
+      <div class="secao-topo">
+        <p class="rotulo revelar">06 — Galeria</p>
+        <h2 class="revelar">Momentos</h2>
+      </div>
+
+      <div class="mosaico">
+        <a class="mosaico-item g-grande" href="#foto-1" style="--i:0">
+          <img src="img/galeria-ellie.jpg" alt="Ellie de perfil, com o rosto machucado" loading="lazy">
+          <span class="mosaico-legenda">Ellie</span>
+        </a>
+        <a class="mosaico-item " href="#foto-2" style="--i:1">
+          <img src="img/galeria-abby.jpg" alt="Abby gritando, encharcada, com faíscas ao redor" loading="lazy">
+          <span class="mosaico-legenda">Abby</span>
+        </a>
+        <a class="mosaico-item " href="#foto-3" style="--i:2">
+          <img src="img/galeria-baile.jpg" alt="Ellie de costas no baile de Jackson, sob um teto cheio de luzes" loading="lazy">
+          <span class="mosaico-legenda">O baile em Jackson</span>
+        </a>
+        <a class="mosaico-item g-larga" href="#foto-4" style="--i:3">
+          <img src="img/galeria-fazenda.jpg" alt="Fazenda ao pôr do sol, com um coração e as iniciais D + E entalhados na árvore" loading="lazy">
+          <span class="mosaico-legenda">A fazenda</span>
+        </a>
+      </div>
+
+      <!-- fotos em tela cheia -->
+      <div class="lightbox" id="foto-1">
+        <a class="lightbox-fundo" href="#galeria" aria-label="Fechar"></a>
+        <img src="img/galeria-ellie.jpg" alt="Ellie de perfil, com o rosto machucado" loading="lazy">
+        <a class="lightbox-fechar" href="#galeria" aria-label="Fechar">✕</a>
+      </div>
+      <div class="lightbox" id="foto-2">
+        <a class="lightbox-fundo" href="#galeria" aria-label="Fechar"></a>
+        <img src="img/galeria-abby.jpg" alt="Abby gritando, encharcada, com faíscas ao redor" loading="lazy">
+        <a class="lightbox-fechar" href="#galeria" aria-label="Fechar">✕</a>
+      </div>
+      <div class="lightbox" id="foto-3">
+        <a class="lightbox-fundo" href="#galeria" aria-label="Fechar"></a>
+        <img src="img/galeria-baile.jpg" alt="Ellie de costas no baile de Jackson, sob um teto cheio de luzes" loading="lazy">
+        <a class="lightbox-fechar" href="#galeria" aria-label="Fechar">✕</a>
+      </div>
+      <div class="lightbox" id="foto-4">
+        <a class="lightbox-fundo" href="#galeria" aria-label="Fechar"></a>
+        <img src="img/galeria-fazenda.jpg" alt="Fazenda ao pôr do sol, com um coração e as iniciais D + E entalhados na árvore" loading="lazy">
+        <a class="lightbox-fechar" href="#galeria" aria-label="Fechar">✕</a>
+      </div>
+    </section>
+
     <!-- CHAMADA FINAL -->
     <section class="final" id="final">
       <img class="final-img" src="img/final-metro.jpg" alt="Túnel de metrô abandonado iluminado de vermelho, com silhuetas de sobreviventes" width="1920" height="799" loading="lazy">

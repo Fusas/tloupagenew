@@ -622,6 +622,173 @@ a {
   white-space: nowrap;
 }
 
+/* ================= CENA DA FRASE ================= */
+.cena-frase .cena-img {
+  object-position: 65% center;
+}
+
+/* o preto e branco fica na camada de sombra (backdrop-filter),
+   porque a animação de rolagem já usa o filter da imagem */
+.cena-frase .cena-sombra {
+  backdrop-filter: grayscale(1);
+  background:
+    linear-gradient(to right, rgba(11, 12, 12, 0.97) 0%, rgba(11, 12, 12, 0.75) 35%, transparent 65%),
+    linear-gradient(to bottom, var(--fundo) 0%, transparent 15%, transparent 85%, var(--fundo) 100%);
+}
+
+.frase {
+  max-width: 620px;
+}
+
+.frase-linhas {
+  font-family: var(--fonte-titulo);
+  font-size: clamp(2.6rem, 6.5vw, 6rem);
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.frase-linhas span {
+  display: block;
+  color: var(--cinza);
+}
+
+.frase-linhas .frase-destaque {
+  color: var(--branco);
+  margin-top: 0.15em;
+}
+
+.frase figcaption {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.frase-traducao {
+  color: var(--cinza);
+  font-size: 1rem;
+  font-style: italic;
+}
+
+.frase .rotulo {
+  margin: 0;
+}
+
+/* ================= GALERIA ================= */
+.galeria {
+  padding: 0 5vw 18vh;
+}
+
+/* mosaico: a primeira foto ocupa 2x2 e a última a linha inteira */
+.mosaico {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 240px;
+  gap: 16px;
+}
+
+.mosaico-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 6px;
+  border: 1px solid var(--linha);
+}
+
+.g-grande {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.g-larga {
+  grid-column: 1 / -1;
+  grid-row: span 2;
+}
+
+.mosaico-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(1) brightness(0.7);
+  transition: transform 1s cubic-bezier(0.2, 0.7, 0.2, 1), filter 0.8s ease;
+}
+
+.mosaico-legenda {
+  position: absolute;
+  left: 20px;
+  bottom: 16px;
+  font-family: var(--fonte-titulo);
+  font-size: 1.8rem;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.8);
+  transform: translateY(8px);
+  opacity: 0.85;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.mosaico-item:hover img,
+.mosaico-item:focus-visible img {
+  filter: grayscale(0) brightness(1);
+  transform: scale(1.06);
+}
+
+.mosaico-item:hover .mosaico-legenda,
+.mosaico-item:focus-visible .mosaico-legenda {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* LIGHTBOX: escondido até o endereço terminar em #foto-N (:target) */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  padding: 5vh 5vw;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.4s ease, visibility 0.4s;
+}
+
+.lightbox:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.lightbox-fundo {
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 6, 6, 0.94);
+  backdrop-filter: blur(6px);
+}
+
+.lightbox img {
+  position: relative;
+  max-width: 100%;
+  max-height: 90vh;
+  border-radius: 4px;
+  transform: scale(0.92);
+  transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.lightbox:target img {
+  transform: scale(1);
+}
+
+.lightbox-fechar {
+  position: absolute;
+  top: 24px;
+  right: 28px;
+  font-size: 1.6rem;
+  color: var(--cinza);
+  transition: color 0.3s;
+}
+
+.lightbox-fechar:hover {
+  color: var(--branco);
+}
+
 /* ================= CHAMADA FINAL ================= */
 .final {
   position: relative;
@@ -1018,6 +1185,13 @@ a {
     }
   }
 
+  /* GALERIA: fotos entram uma depois da outra */
+  .mosaico-item {
+    animation: card-entrar linear both;
+    animation-timeline: view();
+    animation-range: entry calc(var(--i) * 6%) cover calc(20% + var(--i) * 6%);
+  }
+
   @keyframes linha-crescer {
     from {
       transform: scaleX(0);
@@ -1111,6 +1285,25 @@ a {
 
   .assinatura {
     align-items: center;
+  }
+
+  .mosaico {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 220px;
+  }
+
+  .g-grande,
+  .g-larga {
+    grid-column: auto;
+    grid-row: span 1;
+  }
+
+  .cena-frase .cena-img {
+    object-position: 62% center;
+  }
+
+  .cena-frase .cena-sombra {
+    background: linear-gradient(to bottom, var(--fundo) 0%, transparent 20%, rgba(11, 12, 12, 0.6) 45%, var(--fundo) 80%);
   }
 
   /* no celular não existe hover: descrição sempre visível */

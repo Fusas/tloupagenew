@@ -7,9 +7,11 @@ Landing page de estudo inspirada em The Last of Us Parte II, feita só com **HTM
 - **Neblina:** camada de névoa animada passando pela cena.
 - **Profundidade no título:** uma cópia da imagem recortada no tronco da árvore (`clip-path`) fica na frente do título, então as letras parecem estar atrás da árvore.
 - **Cards:** ao passar o mouse, o card sobe, a foto sai do preto e branco para colorida, aproxima e a descrição aparece. Ao rolar, eles entram um depois do outro.
+- **Frase da Ellie:** "I'm gonna find... and I'm gonna kill... every last one of them." (trailer de revelação, PSX 2016), com cada parte aparecendo conforme a rolagem.
 - **Faixa infinita:** "ENDURE AND SURVIVE" correndo sem parar e, embaixo, os nomes das cidades no sentido contrário. Pausa ao passar o mouse.
 - **Vaga-lumes:** segunda cena presa na tela, com o texto embaixo à direita (`cena-direita cena-baixo`) para não cobrir o símbolo na parede.
 - **Infectados:** os 4 estágios da infecção em cards, ligados por uma linha que cresce ao rolar. As fotos saem do preto e branco para coloridas no hover. Card sem foto: troque o `<div class="card-vazio">` por um `<img>`.
+- **Galeria:** mosaico em grid; ao clicar, a foto abre em tela cheia usando `:target` (sem JavaScript).
 - **Chamada final:** imagem em tela cheia que se afasta ao entrar, título "Sobreviva." e botões para a loja e o trailer.
 - **Números:** contam de 0 até o valor final conforme entram na tela (`@property` + `counter()`), e a linha de cima cresce junto.
 - **Rodapé:** assinatura "fusas." com o ponto piscando no hover e selo giratório em SVG.
