@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Last of Us Parte II</title>
+  <meta name="description" content="Landing page de estudo sobre The Last of Us Parte II, feita com HTML e CSS.">
+  <meta name="theme-color" content="#0b0c0c">
+
+  <!-- PRÉVIA AO COMPARTILHAR O LINK (WhatsApp, Discord, Instagram, LinkedIn...)
+       Esses apps só leem endereços completos (https://...), então a prévia
+       só aparece depois que o site estiver online. O endereço abaixo é o
+       que o GitHub Pages vai gerar para o repositório "tloupagenew";
+       se o repositório tiver outro nome, troque nas 3 linhas com "fusas.github.io". -->
+  <link rel="canonical" href="https://fusas.github.io/tloupagenew/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="TLOU II · por Fusas">
+  <meta property="og:title" content="The Last of Us Parte II">
+  <meta property="og:description" content="Toda jornada tem um preço. Landing page de estudo feita só com HTML e CSS.">
+  <meta property="og:url" content="https://fusas.github.io/tloupagenew/">
+  <meta property="og:image" content="https://fusas.github.io/tloupagenew/img/preview.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Título The Last of Us Parte II atrás de uma árvore, com Ellie escondida na floresta">
+  <!-- X/Twitter usa as tags og acima; esta só pede a imagem grande -->
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=Inter:wght@400;500;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="topo">
+    <a href="#inicio" class="logo">TLOU II</a>
+    <nav aria-label="Principal">
+      <ul>
+        <li><a href="#historia">História</a></li>
+        <li><a href="#personagens">Personagens</a></li>
+        <li><a href="#numeros">Números</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO
+         Camadas, de trás para frente:
+         1. imagem inteira
+         2. título
+         3. cópia da imagem recortada só no tronco da árvore (fica na frente do título)
+         4. neblina e sombras -->
+    <section class="hero" id="inicio">
+      <div class="hero-cena">
+        <img class="hero-img" src="img/hero.jpg" alt="Ellie escondida atrás de uma árvore na floresta enquanto inimigos com tochas se aproximam" width="2000" height="1125">
+
+        <div class="hero-titulo">
+          <h1 class="titulo" aria-label="The Last of Us">
+            <span aria-hidden="true" style="--i:0">T</span><span aria-hidden="true" style="--i:1">H</span><span aria-hidden="true" style="--i:2">E</span><span class="espaco"></span><span aria-hidden="true" style="--i:3">L</span><span aria-hidden="true" style="--i:4">A</span><span aria-hidden="true" style="--i:5">S</span><span aria-hidden="true" style="--i:6">T</span><span class="espaco"></span><span aria-hidden="true" style="--i:7">O</span><span aria-hidden="true" style="--i:8">F</span><span class="espaco"></span><span aria-hidden="true" style="--i:9">U</span><span aria-hidden="true" style="--i:10">S</span>
+          </h1>
+          <p class="parte">Parte II</p>
+        </div>
+
+        <img class="hero-frente" src="img/hero.jpg" alt="" aria-hidden="true" width="2000" height="1125">
+        <div class="hero-neblina" aria-hidden="true"></div>
+      </div>
+      <div class="hero-sombra" aria-hidden="true"></div>
+
+      <a href="#historia" class="rolar">
+        <span>Role para baixo</span>
+        <span class="rolar-linha" aria-hidden="true"></span>
+      </a>
+    </section>
+
+    <!-- CENA: seção alta com conteúdo "preso" na tela enquanto rola.
+         Para uma nova imagem, copie este bloco inteiro.
+         Para o texto à direita, use class="cena cena-direita". -->
+    <section class="cena" id="historia">
+      <div class="cena-fixa">
+        <img class="cena-img" src="img/ellie.jpg" alt="Ellie em preto e branco, com o rosto sujo de sangue, encarando com raiva" width="2000" height="1125" loading="lazy">
+        <div class="cena-sombra" aria-hidden="true"></div>
+
+        <div class="cena-texto">
+          <p class="rotulo cena-parte-1">01 — História</p>
+          <h2 class="cena-parte-2">Cinco anos <em>depois.</em></h2>
+          <p class="texto cena-parte-3">
+            Ellie e Joel construíram uma vida em Jackson, Wyoming. Mas quando um acontecimento violento
+            destrói essa paz, Ellie parte numa jornada implacável por Seattle em busca de justiça.
+          </p>
+          <p class="citacao cena-parte-4">“Eu preciso encontrá-los.”</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAIXA DE TEXTO INFINITA
+         O conteúdo aparece duas vezes: a animação move a faixa até a
+         metade e recomeça, então a emenda fica invisível. -->
+    <div class="faixas" aria-hidden="true">
+      <div class="faixa">
+        <div class="faixa-trilho">
+          <span>Endure</span><span class="faixa-sep">✕</span><span class="faixa-vazada">and</span><span class="faixa-sep">✕</span><span>Survive</span><span class="faixa-sep">✕</span>
+          <span>Endure</span><span class="faixa-sep">✕</span><span class="faixa-vazada">and</span><span class="faixa-sep">✕</span><span>Survive</span><span class="faixa-sep">✕</span>
+        </div>
+      </div>
+      <div class="faixa faixa-inversa">
+        <div class="faixa-trilho">
+          <span>Seattle</span><span class="faixa-sep">•</span><span>Jackson</span><span class="faixa-sep">•</span><span>Santa Barbara</span><span class="faixa-sep">•</span>
+          <span>Seattle</span><span class="faixa-sep">•</span><span>Jackson</span><span class="faixa-sep">•</span><span>Santa Barbara</span><span class="faixa-sep">•</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARDS DE PERSONAGENS
+         Para trocar a imagem de um card, mude o src do <img>.
+         object-position escolhe qual parte da foto aparece;
+         --brilho clareia fotos muito escuras (padrão 1). -->
+    <section class="personagens" id="personagens">
+      <div class="secao-topo">
+        <p class="rotulo revelar">02 — Personagens</p>
+        <h2 class="revelar">Quem você vai encontrar</h2>
+      </div>
+
+      <div class="cards">
+        <article class="card" style="--i:0">
+          <div class="card-midia">
+            <img src="img/card-ellie.jpg" alt="Ellie com o rosto machucado, olhando séria" loading="lazy" style="object-position: 60% center;">
+          </div>
+          <div class="card-info">
+            <span class="card-num">01</span>
+            <h3>Ellie</h3>
+            <p class="card-papel">Protagonista</p>
+            <p class="card-desc">Aos 19 anos, sobrevivente e imune. Movida por uma sede de justiça que pode custar tudo.</p>
+          </div>
+        </article>
+
+        <article class="card" style="--i:1">
+          <div class="card-midia">
+            <img src="img/card-joel.jpg" alt="Joel tocando violão no escuro" loading="lazy" style="object-position: center 35%; --brilho: 1.5;">
+          </div>
+          <div class="card-info">
+            <span class="card-num">02</span>
+            <h3>Joel</h3>
+            <p class="card-papel">Figura paterna</p>
+            <p class="card-desc">Contrabandista endurecido que cruzou o país para proteger Ellie, e carrega um segredo.</p>
+          </div>
+        </article>
+
+        <article class="card" style="--i:2">
+          <div class="card-midia">
+            <img src="img/card-abby.jpg" alt="Abby de costas, com a trança molhada pela chuva" loading="lazy" style="object-position: 70% center;">
+          </div>
+          <div class="card-info">
+            <span class="card-num">03</span>
+            <h3>Abby</h3>
+            <p class="card-papel">Soldado da WLF</p>
+            <p class="card-desc">Forte, determinada e com seus próprios motivos. Toda história tem dois lados.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+    <!-- CENA: Vaga-lumes (texto embaixo à direita, para não cobrir o símbolo na parede) -->
+    <section class="cena cena-direita cena-baixo" id="vagalumes">
+      <div class="cena-fixa">
+        <img class="cena-img" src="img/vagalumes.jpg" alt="Ellie olhando o símbolo dos Vaga-lumes pichado na parede, com a palavra LIARS embaixo" width="1920" height="1080" loading="lazy">
+        <div class="cena-sombra" aria-hidden="true"></div>
+
+        <div class="cena-texto">
+          <p class="rotulo cena-parte-1">03 — Vaga-lumes</p>
+          <h2 class="cena-parte-2">Procure <em>a luz.</em></h2>
+          <p class="citacao cena-parte-3">“Quando estiver perdido na escuridão, procure a luz.”</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- INFECTADOS
+         Para colocar a imagem de um estágio, troque o
+         <div class="card-vazio">...</div> por
+         <img src="img/nome.jpg" alt="descrição" loading="lazy">. -->
+    <section class="infectados" id="infectados">
+      <div class="secao-topo">
+        <p class="rotulo revelar">04 — Infectados</p>
+        <h2 class="revelar">Os estágios da infecção</h2>
+      </div>
+
+      <div class="estagios-linha" aria-hidden="true"></div>
+
+      <div class="cards cards-infectados">
+        <article class="card" style="--i:0">
+          <div class="card-midia">
+            <img src="img/inf-corredor.jpg" alt="Corredor: mulher infectada com o rosto ensanguentado e bolhas de fungo" loading="lazy" style="object-position: 100% 30%;">
+          </div>
+          <div class="card-info">
+            <span class="card-num">Estágio 1</span>
+            <h3>Corredor</h3>
+            <p class="card-papel">Até 2 semanas</p>
+            <p class="card-desc">Ainda parecem humanos, mas perderam o controle. Rápidos e agressivos, costumam atacar em grupo.</p>
+          </div>
+        </article>
+        <article class="card" style="--i:1">
+          <div class="card-midia">
+            <img src="img/inf-espreitador.jpg" alt="Espreitadores: dois infectados com o fungo brotando da cabeça" loading="lazy" style="object-position: 100% center;">
+          </div>
+          <div class="card-info">
+            <span class="card-num">Estágio 2</span>
+            <h3>Espreitador</h3>
+            <p class="card-papel">2 semanas a 1 ano</p>
+            <p class="card-desc">O fungo começa a tomar o rosto. Se escondem nas sombras e atacam de emboscada.</p>
+          </div>
+        </article>
+        <article class="card" style="--i:2">
+          <div class="card-midia">
+            <img src="img/inf-estalador.jpg" alt="Estalador com a cabeça tomada pelo fungo" loading="lazy" style="object-position: 50% 20%;">
+          </div>
+          <div class="card-info">
+            <span class="card-num">Estágio 3</span>
+            <h3>Estalador</h3>
+            <p class="card-papel">Mais de 1 ano</p>
+            <p class="card-desc">Cegos, com a cabeça coberta pelo fungo. Se guiam pelo som, com estalos de ecolocalização.</p>
+          </div>
+        </article>
+        <article class="card" style="--i:3">
+          <div class="card-midia">
+            <img src="img/inf-baiacu.jpg" alt="Baiacu coberto de fungo diante de um incêndio" loading="lazy" style="object-position: center 30%;">
+          </div>
+          <div class="card-info">
+            <span class="card-num">Estágio 4</span>
+            <h3>Baiacu</h3>
+            <p class="card-papel">Vários anos</p>
+            <p class="card-desc">Uma armadura de fungo cobre o corpo inteiro. Lento, resistente e lança bolsas de esporos.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- NÚMEROS
+         --alvo é o número final. Ele conta de 0 até --alvo conforme a
+         seção entra na tela. O <span class="sr"> guarda o valor real
+         para leitores de tela. -->
+    <section class="numeros" id="numeros">
+      <div class="secao-topo">
+        <p class="rotulo revelar">05 — Em números</p>
+        <h2 class="revelar">Um marco dos games</h2>
+      </div>
+
+      <div class="stats">
+        <div class="stat" style="--alvo: 93;">
+          <p class="stat-numero"><span class="sr">93</span><span class="stat-conta" aria-hidden="true"></span></p>
+          <p class="stat-rotulo">Nota no Metacritic (PS4)</p>
+        </div>
+        <div class="stat" style="--alvo: 7;">
+          <p class="stat-numero"><span class="sr">7</span><span class="stat-conta" aria-hidden="true"></span></p>
+          <p class="stat-rotulo">Prêmios no The Game Awards 2020, incluindo Jogo do Ano</p>
+        </div>
+        <div class="stat" style="--alvo: 4;">
+          <p class="stat-numero"><span class="sr">4 milhões</span><span class="stat-conta" aria-hidden="true"></span><span class="stat-sufixo" aria-hidden="true">mi</span></p>
+          <p class="stat-rotulo">Cópias vendidas nos 3 primeiros dias</p>
+        </div>
+        <div class="stat" style="--alvo: 60;">
+          <p class="stat-numero"><span class="sr">Mais de 60</span><span class="stat-conta" aria-hidden="true"></span><span class="stat-sufixo" aria-hidden="true">+</span></p>
+          <p class="stat-rotulo">Opções de acessibilidade</p>
+        </div>
+      </div>
+    </section>
+    <!-- CHAMADA FINAL -->
+    <section class="final" id="final">
+      <img class="final-img" src="img/final-metro.jpg" alt="Túnel de metrô abandonado iluminado de vermelho, com silhuetas de sobreviventes" width="1920" height="799" loading="lazy">
+      <div class="final-sombra" aria-hidden="true"></div>
+
+      <div class="final-conteudo">
+        <p class="rotulo final-parte">Disponível no PS5 e PC</p>
+        <h2 class="final-titulo final-parte">Sobreviva.</h2>
+        <div class="final-botoes final-parte">
+          <a class="botao botao-cheio" href="https://www.playstation.com/pt-br/games/the-last-of-us-part-ii-remastered/" target="_blank" rel="noopener">Comprar agora</a>
+          <a class="botao" href="https://www.youtube.com/results?search_query=the+last+of+us+part+ii+remastered+trailer" target="_blank" rel="noopener">Ver trailer ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <!-- assinatura (logo 5) -->
+    <a class="assinatura" href="https://github.com/Fusas" target="_blank" rel="noopener">
+      <span class="assinatura-rotulo">Feito por</span>
+      <span class="assinatura-nome">fusas<span class="assinatura-ponto" aria-hidden="true"></span></span>
+    </a>
+
+    <p class="rodape-aviso">Projeto de estudo, sem fins comerciais.<br>The Last of Us e imagens © Naughty Dog / Sony Interactive Entertainment.</p>
+
+    <!-- selo giratório (logo 6) -->
+    <a class="selo" href="https://github.com/Fusas" target="_blank" rel="noopener" aria-label="GitHub de Fusas">
+      <svg viewBox="0 0 180 180" aria-hidden="true">
+        <defs>
+          <path id="selo-circulo" d="M90 90 m-66 0 a66 66 0 1 1 132 0 a66 66 0 1 1 -132 0"/>
+        </defs>
+        <circle class="selo-borda" cx="90" cy="90" r="86"/>
+        <text class="selo-texto">
+          <textPath href="#selo-circulo" textLength="410" lengthAdjust="spacing">FUSAS • WEB DEV • FUSAS • WEB DEV • </textPath>
+        </text>
+        <g class="selo-f">
+          <rect x="76" y="66" width="10" height="48"/>
+          <rect x="76" y="66" width="32" height="10"/>
+          <rect x="76" y="86" width="24" height="10"/>
+        </g>
+      </svg>
+    </a>
+  </footer>
+
+</body>
+</html>
