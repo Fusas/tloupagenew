@@ -35,6 +35,27 @@
 </head>
 <body>
 
+  <!-- tela de abertura (some sozinha pelo CSS) -->
+  <div class="abertura" aria-hidden="true">
+    <svg viewBox="0 0 180 180" aria-hidden="true">
+      <defs>
+        <path id="abertura-circulo" d="M90 90 m-66 0 a66 66 0 1 1 132 0 a66 66 0 1 1 -132 0"/>
+      </defs>
+      <circle class="selo-borda" cx="90" cy="90" r="86"/>
+      <text class="selo-texto">
+        <textPath href="#abertura-circulo" textLength="410" lengthAdjust="spacing">FUSAS • WEB DEV • FUSAS • WEB DEV • </textPath>
+      </text>
+      <g class="selo-f" transform="translate(59 66) scale(0.95)">
+        <path d="M0 50 C 11 47 15 30 21 17 C 26 6 32 0 44 0 H 66"/>
+        <path d="M13 24 H 40"/>
+      </g>
+    </svg>
+  </div>
+
+  <!-- efeitos fixos: barra de progresso e granulado de filme -->
+  <div class="progresso" aria-hidden="true"></div>
+  <div class="granulado" aria-hidden="true"></div>
+
   <header class="topo">
     <a href="#inicio" class="logo">TLOU II</a>
     <nav aria-label="Principal">
@@ -387,6 +408,10 @@
       </div>
     </section>
   </main>
+
+  <a class="topo-botao" href="#inicio" aria-label="Voltar ao topo">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </a>
 
   <footer class="rodape">
     <!-- assinatura: o F é um traço de assinatura e o resto é desenhado em linhas.

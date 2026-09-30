@@ -15,6 +15,10 @@ Landing page de estudo inspirada em The Last of Us Parte II, feita só com **HTM
 - **Chamada final:** imagem em tela cheia que se afasta ao entrar, título "Sobreviva." e botões para a loja e o trailer.
 - **Números:** contam de 0 até o valor final conforme entram na tela (`@property` + `counter()`), e a linha de cima cresce junto.
 - **Rodapé:** assinatura "FUSAS" desenhada em SVG (o F é "reescrito" no hover com `stroke-dashoffset`) e selo com o texto girando em volta do F.
+- **Tela de abertura:** o selo girando sobre fundo escuro por ~1,5 s; o hero começa quando ela sai (`--abertura` no CSS controla o tempo).
+- **Barra de progresso:** linha branca no topo que enche com a rolagem (`animation-timeline: scroll()`).
+- **Granulado de filme:** ruído gerado por filtro SVG (`feTurbulence`), tremendo como película.
+- **Voltar ao topo:** botão que aparece depois do hero e sai da tela perto do rodapé.
 - **Favicon:** o F dentro de um círculo (`favicon.svg`, com PNGs de reserva).
 - **Rolagem:** o título sobe e some ao rolar. Nas cenas seguintes, o conteúdo fica fixo na tela (`position: sticky`) enquanto a imagem sai do escuro e os textos entram um de cada vez (`animation-timeline`).
 - Respeita `prefers-reduced-motion` para quem desativa animações no sistema.

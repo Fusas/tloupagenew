@@ -21,6 +21,7 @@
   --linha: rgba(242, 242, 242, 0.12);
   --fonte-titulo: "TLOU", "Oswald", "Arial Narrow", sans-serif;
   --fonte-texto: "Inter", system-ui, sans-serif;
+  --abertura: 1.4s; /* tempo da tela de abertura; o hero anima depois dela */
 }
 
 * {
@@ -56,7 +57,7 @@ a {
   align-items: center;
   padding: 28px 5vw;
   opacity: 0;
-  animation: aparecer 1.2s ease 2.6s forwards;
+  animation: aparecer 1.2s ease calc(var(--abertura) + 2s) forwards;
 }
 
 .logo {
@@ -103,7 +104,7 @@ a {
   aspect-ratio: 16 / 9;
   translate: -50% -50%;
   container-type: inline-size;
-  animation: cena-entrada 3.5s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation: cena-entrada 3.5s cubic-bezier(0.2, 0.7, 0.2, 1) var(--abertura) both;
 }
 
 .hero-img,
@@ -151,7 +152,7 @@ a {
   filter: blur(18px);
   transform: translateY(8%) scale(1.06);
   animation: letra 1.8s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
-  animation-delay: calc(0.5s + var(--i) * 0.08s);
+  animation-delay: calc(var(--abertura) + 0.5s + var(--i) * 0.08s);
 }
 
 .titulo .espaco {
@@ -168,7 +169,7 @@ a {
   padding-right: 17.5%;
   opacity: 0;
   filter: blur(12px);
-  animation: letra 1.8s cubic-bezier(0.2, 0.7, 0.2, 1) 1.6s forwards;
+  animation: letra 1.8s cubic-bezier(0.2, 0.7, 0.2, 1) calc(var(--abertura) + 1.6s) forwards;
 }
 
 /* neblina passando devagar, por cima de tudo */
@@ -211,7 +212,7 @@ a {
   text-transform: uppercase;
   color: var(--cinza);
   opacity: 0;
-  animation: aparecer 1.2s ease 3s forwards;
+  animation: aparecer 1.2s ease calc(var(--abertura) + 2.4s) forwards;
 }
 
 .rolar-linha {
@@ -962,6 +963,115 @@ a {
   scale: 1.15;
 }
 
+/* ================= TELA DE ABERTURA =================
+   Cobre a página no carregamento com o selo girando e some
+   sozinha depois de var(--abertura). Só CSS. */
+.abertura {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  background: var(--fundo);
+  animation: abertura-sair 0.6s ease calc(var(--abertura) - 0.3s) forwards;
+}
+
+.abertura svg {
+  width: 150px;
+  height: 150px;
+  overflow: visible;
+  animation: abertura-selo 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.abertura .selo-texto {
+  animation-duration: 5s; /* gira mais rápido que o do rodapé */
+}
+
+@keyframes abertura-sair {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes abertura-selo {
+  from {
+    opacity: 0;
+    scale: 0.8;
+  }
+}
+
+/* ================= GRANULADO DE FILME =================
+   Ruído gerado por um filtro SVG (feTurbulence), repetido pela
+   tela e "tremendo" em passos, como grão de película. */
+.granulado {
+  position: fixed;
+  inset: -50%;
+  z-index: 45;
+  pointer-events: none;
+  opacity: 0.07;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url%28%23n%29'/%3E%3C/svg%3E");
+  animation: granulado 0.9s steps(6) infinite;
+}
+
+@keyframes granulado {
+  0% { transform: translate(0, 0); }
+  20% { transform: translate(-4%, 3%); }
+  40% { transform: translate(3%, -5%); }
+  60% { transform: translate(-6%, -2%); }
+  80% { transform: translate(5%, 4%); }
+  100% { transform: translate(-2%, 6%); }
+}
+
+/* ================= BARRA DE PROGRESSO ================= */
+.progresso {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 20;
+  height: 2px;
+  background: var(--branco);
+  transform-origin: left;
+  transform: scaleX(0);
+  display: none; /* só aparece onde a animação de rolagem funciona */
+}
+
+/* ================= VOLTAR AO TOPO ================= */
+.topo-botao {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 30;
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(242, 242, 242, 0.35);
+  border-radius: 50%;
+  background: rgba(11, 12, 12, 0.7);
+  backdrop-filter: blur(8px);
+  transition: border-color 0.3s, background 0.3s;
+}
+
+.topo-botao svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: var(--branco);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: translate 0.4s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.topo-botao:hover {
+  border-color: var(--branco);
+  background: rgba(242, 242, 242, 0.08);
+}
+
+.topo-botao:hover svg {
+  translate: 0 -3px;
+}
+
 /* ================= ANIMAÇÕES ================= */
 @keyframes cena-entrada {
   from {
@@ -1036,6 +1146,40 @@ a {
    Só rodam em navegadores com suporte (Chrome, Edge, Safari 26+).
    Nos outros, a página aparece normal, sem o efeito. */
 @supports (animation-timeline: view()) {
+
+  /* BARRA DE PROGRESSO: enche de 0 a 100% junto com a rolagem */
+  .progresso {
+    display: block;
+    animation: progresso linear both;
+    animation-timeline: scroll(root);
+  }
+
+  @keyframes progresso {
+    to {
+      transform: scaleX(1);
+    }
+  }
+
+  /* VOLTAR AO TOPO: aparece depois do hero e desce para fora da tela
+     perto do fim, para não ficar em cima do selo do rodapé */
+  .topo-botao {
+    animation: topo-aparecer linear both, topo-sumir linear both;
+    animation-timeline: scroll(root), scroll(root);
+    animation-range: 60vh 100vh, calc(100% - 45vh) calc(100% - 20vh);
+  }
+
+  @keyframes topo-aparecer {
+    from {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+
+  @keyframes topo-sumir {
+    to {
+      translate: 0 140px;
+    }
+  }
 
   /* MENU: ganha fundo escuro desfocado depois que sai do hero */
   .topo::before {
@@ -1214,6 +1358,13 @@ a {
 @media (max-width: 700px) {
   .topo {
     padding: 20px 16px;
+  }
+
+  .topo-botao {
+    right: 16px;
+    bottom: 16px;
+    width: 44px;
+    height: 44px;
   }
 
   .topo ul {
